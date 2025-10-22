@@ -1,0 +1,299 @@
+\documentclass[]{article}
+
+%opening
+\title{A neural network lpv framework for ecm battery models}
+\author{Diogo Lopes Fernandes}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction}
+
+The global transition towards electrification and sustainable energy systems has established lithium-ion batteries (LIBs) as the predominant energy storage technology for high-demand applications. Owing to their high energy density, long cycle life, and low self-discharge rates, LIBs are integral to the operation of modern electric vehicles (EVs), hybrid electric vehicles (HEVs), e-bikes, and autonomous mobile robots \cite{mawuntu2023modeling}. The viability, safety, and performance of these systems are directly dependent on the precise and reliable operation of the energy storage unit.
+
+To ensure this reliability, a sophisticated Battery Management System (BMS) is essential for monitoring and controlling the battery pack \cite{tekin2024comparative}. The primary functions of a BMS include ensuring operation within the safe operating area (SOA), managing cell balancing, and—most critically—providing accurate real-time estimations of the battery's internal states, such as the State of Charge (SoC) and the State of Health (SoH) \cite{damodaran2024fast}. The fidelity of these estimations is entirely reliant on the accuracy of the underlying battery model used by the BMS algorithms \cite{tran2021comprehensive}, especially under the dynamic load profiles of automotive or robotic applications.
+
+In the literature, battery modeling strategies are broadly categorized into three main families. The first is physics-based (or electrochemical) models, which offer the highest fidelity by describing the internal electrochemical processes. The foundational model in this category is the Doyle-Fuller-Newman (DFN) model, also known as the Pseudo-two-Dimensional (P2D) model \cite{piruzjam2024analytical}. While comprehensive, the DFN model involves complex systems of partial differential equations (PDEs), making it computationally prohibitive for real-time BMS applications \cite{khalik2021model}. Consequently, significant research focuses on developing Reduced-Order Models (ROMs), such as the Single Particle Model (SPM) \cite{li2018single, piruzjam2024analytical}, or designing complex state observers for the DFN model itself \cite{drummond2019observer}, all attempting to balance physical accuracy with computational feasibility.
+
+A second major category is empirical or data-driven models. These "black-box" approaches leverage machine learning (ML) algorithms, such as Recurrent Neural Networks (RNN), NARX networks, or Support Vector Machines (SVM), to map battery inputs (e.g., current, temperature) directly to outputs (e.g., voltage, SoC) \cite{kawahara2023battery, wang2021coestimation, xia2024hybrid}. While these models can achieve high accuracy, they often require large and diverse training datasets and face significant challenges with extrapolation, generalization, and a lack of physical interpretability (the "black-box" problem) \cite{valizadeh2024machine, kawahara2023battery}.
+
+The third approach, which strikes an optimal balance for BMS applications, is the Equivalent Circuit Model (ECM). ECMs have become the industry standard due to their intuitive structure, low computational overhead, and sufficient accuracy for state estimation \cite{tekin2024comparative}. These models represent the battery's electrical behavior using a combination of electrical components, including a voltage source (representing the Open-Circuit Voltage or OCV), an internal ohmic resistance (Rint), and one or more Resistor-Capacitor (RC) pairs to capture the dynamic polarization phenomena \cite{khalfi2021electric}.
+
+The primary challenge in deploying high-fidelity ECMs, however, is their parameterization. The values of the circuit components (resistances and capacitances) are not static; they exhibit strong non-linear dependencies on the battery's operating conditions, including the State of Charge, temperature, and even the battery's State of Health (SoH) or aging level \cite{tran2021comprehensive}. Ignoring these variations leads to significant errors in state estimation. Therefore, accurate battery modeling necessitates not only a suitable ECM structure but also robust online parameter identification techniques capable of tracking these multi-timescale parameter variations in real-time \cite{pai2023online, yang2023improved, beelen2018experiment}.
+
+\section{Equivalent Circuit Models}
+\subsection{First-Order Equivalent Circuit Model (1RC)}
+
+The first-order Equivalent Circuit Model (ECM), often referred to as the first-order Thevenin model or simply the 1RC model, is widely considered the industry standard for Battery Management System (BMS) applications \cite{tekin2024comparative}. Its predominance is due to the fact that it offers an ideal balance between model fidelity and computational complexity. Although it is significantly more accurate than the simple Rint (internal resistance) model by capturing the battery's transient dynamic response, it remains computationally lightweight enough to be executed in real-time on BMS microcontrollers, unlike complex electrochemical models \cite{mawuntu2023modeling}.
+
+The 1RC model structure represents the battery's electrical behavior through a circuit composed of four main components, where each models a distinct physical phenomenon:
+\begin{itemize}
+	\item \textbf{Voltage Source ($V_{OCV}$):} The Open-Circuit Voltage (OCV) is an ideal voltage source representing the battery's thermodynamic equilibrium potential. The $V_{OCV}$ value is not constant; it has a strong non-linear relationship with the battery's State of Charge (SoC) \cite{tran2021comprehensive}.
+	
+	\item \textbf{Ohmic Resistor ($R_0$):} This resistor, also called the internal resistance, models the instantaneous Joule effect losses. Physically, it represents the combined resistance of the electrolyte, separators, and electrical contacts.
+	
+	\item \textbf{The RC Pair ($R_1$ and $C_1$):} This is the core of the model's dynamic part. The pair, composed of a resistor ($R_1$) and a capacitor ($C_1$) in parallel, models the battery's transient phenomena, primarily the charge-transfer polarization ($R_1$) and the double-layer capacitance ($C_1$) at the electrode/electrolyte interface.
+\end{itemize}
+
+\subsection{Model Equations}
+
+The 1RC model is mathematically described by a system of state equations. The two state variables (internal states) of the model are the State of Charge ($SoC(t)$) and the voltage across the polarization capacitor ($V_1(t)$). The model output is the terminal voltage ($V_t(t)$). Adopting the convention where the current $I(t)$ is positive for discharge, the equations are as follows:
+
+\subsubsection{State Equation: SoC Estimation}
+The State of Charge is calculated using the Coulomb Counting method, which integrates the current over time. The differential equation for $SoC$ is given by:
+
+\begin{equation}
+	\label{eq:soc}
+	\frac{dSoC(t)}{dt} = - \frac{\eta I(t)}{Q}
+\end{equation}
+
+Where $\eta$ is the Coulombic efficiency (usually close to 1), $I(t)$ is the battery current, and $Q$ is the total nominal capacity (in Ampere-seconds). This equation is the basis for most SoC estimators \cite{xie2023state}.
+
+\subsubsection{State Equation: Polarization Dynamics}
+The second state equation describes the variation of the voltage $V_1(t)$ across the RC pair. Applying Kirchhoff's Current Law at the RC pair's node, where the current $I(t)$ splits between $R_1$ and $C_1$, and rearranging into state-space form, we have:
+
+\begin{equation}
+	\label{eq:v1}
+	\frac{dV_1(t)}{dt} = - \frac{V_1(t)}{R_1 C_1} + \frac{I(t)}{C_1}
+\end{equation}
+
+Where the term $\frac{V_1(t)}{R_1 C_1}$ represents the natural decay of the polarization voltage (the time constant is $\tau_1 = R_1 C_1$) and the term $\frac{I(t)}{C_1}$ represents the voltage buildup on the capacitor due to the current flowing into the RC pair.
+
+\subsubsection{Output Equation: Terminal Voltage}
+Finally, the terminal voltage $V_t(t)$ (the voltage measured by the BMS) is calculated by summing the voltage drops in the circuit, based on Kirchhoff's Voltage Law:
+
+\begin{equation}
+	\label{eq:vt}
+	V_t(t) = V_{OCV}(SoC) - I(t)R_0 - V_1(t)
+\end{equation}
+
+Where $V_{OCV}(SoC)$ is the equilibrium voltage (dependent on SoC), $I(t)R_0$ is the instantaneous ohmic voltage drop, and $V_1(t)$ is the transient (polarization) voltage drop calculated by Equation \ref{eq:v1}.
+
+\subsection{Model Importance and Challenges}
+The importance of this state-space formulation is that it provides the perfect foundation for modern estimation algorithms, such as the Extended Kalman Filter (EKF), which uses this model to predict the battery's behavior and correct its estimates of $SoC$ and $V_1$ \cite{xie2023state, pai2023online}.
+
+However, the main challenge in implementing a high-fidelity 1RC ECM—and the central focus of this work—is that its parameters ($V_{OCV}$, $R_0$, $R_1$, and $C_1$) are not fixed values. They are, in fact, non-linear functions that vary drastically with the State of Charge (SoC), temperature, and the battery's State of Health (SoH) \cite{tran2021comprehensive}. Therefore, for the model to be accurate under all operating conditions, a robust method is required to identify and update these variable parameters in real-time \cite{yang2023improved, pai2023online}.
+
+\section{Second-Order Equivalent Circuit Model (2RC)}
+
+To achieve higher fidelity in capturing the battery's dynamic behavior, the 1RC model can be extended. The Second-Order Equivalent Circuit Model (2RC), also known as the Dual Polarization (DP) model, is a common enhancement \cite{tekin2024comparative, khalfi2021electric}. This model is preferred when a single RC pair is insufficient to accurately represent the complex polarization phenomena, which often occur at different timescales.
+
+The 2RC model retains the foundational components of the 1RC model—the OCV voltage source ($V_{OCV}$) and the ohmic resistor ($R_0$)—but adds a second RC pair ($R_2$, $C_2$) in series with the first. This structure allows the model to distinguish between two different transient processes \cite{tran2021comprehensive}:
+\begin{itemize}
+	\item \textbf{First RC Pair ($R_1, C_1$):} Typically represents the "fast" dynamics, such as the charge-transfer polarization and double-layer capacitance at the primary interface.
+	
+	\item \textbf{Second RC Pair ($R_2, C_2$):} Represents a "slower" dynamic process, most commonly associated with mass transport or diffusion polarization within the electrolyte or active material.
+\end{itemize}
+
+\subsection{Model Equations}
+
+By adding the second RC pair, the model's state-space representation is expanded to include three state variables: the State of Charge ($SoC(t)$), the polarization voltage of the first pair ($V_1(t)$), and the polarization voltage of the second pair ($V_2(t)$).
+
+\subsubsection{State Equation: SoC Estimation}
+The estimation of the State of Charge remains unchanged and is calculated using the Coulomb Counting method, as previously defined in Equation \ref{eq:soc}.
+
+\subsubsection{State Equations: Polarization Dynamics}
+We now have two independent state equations to describe the voltage across each RC pair. Both are analogous to the 1RC model's polarization equation:
+
+\begin{equation}
+	\label{eq:v1_2rc}
+	\frac{dV_1(t)}{dt} = - \frac{V_1(t)}{R_1 C_1} + \frac{I(t)}{C_1}
+\end{equation}
+
+\begin{equation}
+	\label{eq:v2_2rc}
+	\frac{dV_2(t)}{dt} = - \frac{V_2(t)}{R_2 C_2} + \frac{I(t)}{C_2}
+\end{equation}
+
+Where $R_1 C_1$ and $R_2 C_2$ represent the distinct time constants for the fast and slow polarization phenomena, respectively.
+
+\subsubsection{Output Equation: Terminal Voltage}
+The terminal voltage $V_t(t)$ is now the sum of the OCV, the instantaneous ohmic drop, and the voltage drops across \textit{both} polarization pairs:
+
+\begin{equation}
+	\label{eq:vt_2rc}
+	V_t(t) = V_{OCV}(SoC) - I(t)R_0 - V_1(t) - V_2(t)
+\end{equation}
+
+\subsection{Model Trade-offs}
+The inclusion of the second RC pair allows the 2RC model to provide a more accurate fit to experimental data, especially under highly dynamic load profiles where multiple polarization effects are significant \cite{khalfi2021electric}. This improved accuracy, however, comes at the cost of increased computational complexity. The BMS must now track three internal states instead of two, and, more importantly, it must identify and update two additional variable parameters ($R_2$ and $C_2$), which also depend non-linearly on SoC, temperature, and SoH.
+
+\section{Partnership for a New Generation of Vehicles (PNGV) Model}
+
+Another common structure found in the literature is the model developed by the Partnership for a New Generation of Vehicles (PNGV) initiative \cite{tekin2024comparative}. At first glance, the PNGV model appears structurally similar to the 1RC model, as it contains one ohmic resistor ($R_0$) and a single RC pair ($R_1$, $C_1$) to model the transient polarization dynamics.
+
+The fundamental difference lies in how the State of Charge (SoC) and Open-Circuit Voltage ($V_{OCV}$) are represented. In the 1RC and 2RC models previously discussed, the SoC is a state calculated by Coulomb counting (Eq. \ref{eq:soc}), and the $V_{OCV}$ is determined via a highly non-linear lookup function of that state ($V_{OCV}(SoC)$). The PNGV model linearizes this relationship by treating the $V_{OCV}$ \textit{itself} as a state variable. This is accomplished by modeling the battery's total charge storage as a single, large "bulk capacitor" ($C_b$) \cite{tekin2024comparative}.
+
+\subsection{Model Equations}
+
+The PNGV model is also a second-order system, but its states are the polarization voltage ($V_1(t)$) and the open-circuit voltage ($V_{OCV}(t)$).
+
+\subsubsection{State Equation: Polarization Dynamics}
+The equation for the transient RC pair is identical to that of the 1RC model (Equation \ref{eq:v1}):
+
+\begin{equation}
+	\label{eq:v1_pngv}
+	\frac{dV_1(t)}{dt} = - \frac{V_1(t)}{R_1 C_1} + \frac{I(t)}{C_1}
+\end{equation}
+
+\subsubsection{State Equation: Open-Circuit Voltage}
+The SoC (and thus the OCV) is modeled by integrating the current into the bulk capacitor $C_b$. This replaces the separate Coulomb counting equation. Assuming a discharge current $I(t)$ is positive, the OCV state decreases:
+
+\begin{equation}
+	\label{eq:vocv_pngv}
+	\frac{dV_{OCV}(t)}{dt} = - \frac{I(t)}{C_b}
+\end{equation}
+
+Here, $C_b$ is a very large capacitance representing the change in OCV with respect to the accumulated charge (measured in Ah/V or Farads).
+
+\subsubsection{Output Equation: Terminal Voltage}
+The output equation is identical in form to the 1RC model, but $V_{OCV}$ is now a state variable from Equation \ref{eq:vocv_pngv} instead of a static function:
+
+\begin{equation}
+	\label{eq:vt_pngv}
+	V_t(t) = V_{OCV}(t) - I(t)R_0 - V_1(t)
+\end{equation}
+
+\subsection{Model Trade-offs}
+The primary advantage of the PNGV model is that it simplifies the state estimation algorithm by avoiding the non-linear $V_{OCV}(SoC)$ lookup table. This can make the model formulation more linear, which is advantageous for standard Kalman filters.
+
+However, this simplification comes at a significant cost. The $V_{OCV}(SoC)$ relationship is known to be highly non-linear, especially for LFP (Lithium Iron Phosphate) chemistries. Approximating this curve with a single, constant capacitance $C_b$ is only accurate for a very small SoC range. To maintain accuracy, the $C_b$ parameter itself must be varied as a non-linear function of the voltage $V_{OCV}$ (or SoC) \cite{tekin2024comparative}. Consequently, the non-linearity is not eliminated but merely shifted from a state function ($V_{OCV}(SoC)$) to a variable parameter ($C_b(SoC)$). This model, therefore, still faces the same central challenge as all other ECMs: all its parameters ($R_0$, $R_1$, $C_1$, and $C_b$) are variable and require robust identification.
+
+\section{System Identification Methods}
+
+\subsection{Transfer function model}
+
+An alternative approach to parameter identification involves moving from the time-domain state-space representation (Equations \ref{eq:soc}-\ref{eq:vt_2rc}) to the Laplace s-domain. This method treats the battery as a linear system and approximates its behavior using a transfer function (TF). The ECM's impedance $Z(s)$ can be derived by applying the Laplace transform to the output equation, assuming the input is the current $I(s)$ and the output is the resulting voltage drop, or overpotential, $V_{drop}(s) = V_t(s) - V_{OCV}(s)$.
+
+For the 1RC model, the impedance $Z(s)$ is:
+\begin{equation}
+	\label{eq:tf_1rc}
+	Z_{1RC}(s) = \frac{V_{drop}(s)}{I(s)} = R_0 + \frac{R_1}{sR_1C_1 + 1}
+\end{equation}
+
+Similarly, for the 2RC model, the impedance is the sum of the components:
+\begin{equation}
+	\label{eq:tf_2rc}
+	Z_{2RC}(s) = \frac{V_{drop}(s)}{I(s)} = R_0 + \frac{R_1}{sR_1C_1 + 1} + \frac{R_2}{sR_2C_2 + 1}
+\end{equation}
+
+\subsection{Hypotheses and Crucial Simplifications}
+
+While powerful, this approach is only valid if several critical simplifying assumptions are made. The very nature of a transfer function requires the system to be **Linear Time-Invariant (LTI)**.
+
+1.  \textbf{LTI Assumption (Time-Invariance):} The primary simplification is that all model parameters—$R_0$, $R_1$, $C_1$, $R_2$, $C_2$—are assumed to be \textbf{constant} during the identification experiment. This hypothesis is a significant simplification, as it is the central premise of this work that these parameters are, in fact, highly variable.
+
+2.  \textbf{LTI Assumption (Linearity):} The system's response must be linear. The main non-linearity in an ECM is the $V_{OCV}(SoC)$ relationship. To linearize the system, this component must be removed *before* identification. This is achieved by subtracting the pre-measured OCV from the terminal voltage. The input data for identification is the current $I(t)$, and the output data is the overpotential $V_{drop}(t) = V_t(t) - V_{OCV}(SoC(t))$.
+
+3.  \textbf{Local Validity:} Because of these simplifications, any transfer function identified is only valid for a very small operating window (e.g., at a constant temperature and within a narrow SoC range, such as 5–10\%). To model the battery's full behavior, one would need to estimate a large set of LTI models, one for each operating point (SoC, Temp), effectively creating a lookup table of models.
+
+\subsection{Identification using System Identification Tools}
+
+With these simplifications, the parameter identification task becomes a "black-box" or "grey-box" system identification problem. This process is well-supported by software packages like the MATLAB System Identification Toolbox.
+
+Using dynamic input-output data (e.g., from an HPPC test or a drive cycle), the function `tfest` can be employed. This function estimates the coefficients of a transfer function $G(s)$ of a specified order (number of poles and zeros) that best fits the measured input-output data.
+
+For example, to identify a 2RC model (Equation \ref{eq:tf_2rc}), which has two poles, one would instruct `tfest` to find a second-order transfer function. The function would process the input data $I(t)$ and the output data $V_{drop}(t)$ to find the optimal coefficients. This "black-box" time-domain modeling approach is a fast and effective method for capturing the system's dynamics without iterative optimization \cite{khalfi2021boxjenkins, pai2023online}.
+
+Once the transfer function is estimated, the physical ECM parameters ($R_0$, $R_1$, $C_1$, etc.) can be extracted from the resulting coefficients through algebraic manipulation (e.g., partial fraction decomposition or by matching the coefficients of the polynomial).
+
+\section{Grey-Box Identification with Differentiable Solvers}
+
+The transfer function method, while fast, forces a critical simplification: the system must be treated as Linear Time-Invariant (LTI). This fundamentally conflicts with the known physics of a battery, where parameters are non-linear functions of state \cite{tran2021comprehensive}. A more robust approach is "grey-box" identification. In this paradigm, we retain the known non-linear Ordinary Differential Equation (ODE) structure of the ECM (e.g., the 2RC state-space model) and perform an optimization to find the parameters $\theta = \{R_0, R_1, C_1, R_2, C_2, \dots\}$ that minimize the error between the simulated voltage $V_{model}$ and the experimental data $V_{exp}$.
+
+This creates a complex, non-linear optimization problem. Historically, solving such problems was difficult, often requiring gradient-free methods (which are slow) or manual derivation of gradients (which is error-prone).
+
+\subsection{Differentiable Programming with JAX and Diffrax}
+
+A modern solution is found in the Python ecosystem through "differentiable programming". This approach leverages the \texttt{JAX} library for automatic differentiation (\texttt{jax.grad}) and just-in-time (\texttt{jit}) compilation \cite{kidger2021diffrax}. The ECM, which is a system of ODEs, can be implemented using a differentiable ODE solver, such as \texttt{Diffrax}.
+
+The entire simulation process—from integrating the ODEs (Eq. \ref{eq:v1_2rc}, \ref{eq:v2_2rc}) with \texttt{Diffrax} to calculating the final voltage error (Eq. \ref{eq:vt_2rc})—becomes a single, end-to-end differentiable function. We can then use \texttt{jax.grad} to automatically and efficiently compute the exact gradient of the loss function (e.g., RMSE) with respect to every parameter $\theta$ we wish to identify. These gradients are then fed into a high-performance optimizer (like ADAM or L-BFGS, available in libraries like \texttt{Optax}) to solve the minimization problem.
+
+\subsection{Robustness via Multiple Shooting}
+
+A standard simulation ("single shooting") integrates the ODE from $t_0$ to $t_{final}$. If the time-series data is long (as in a drive cycle), this approach can be numerically unstable, suffering from vanishing or exploding gradients. A more robust strategy is \textbf{multiple shooting}.
+
+In this method, the full time-series is partitioned into $M$ smaller, independent intervals. The optimization problem is then reformulated as:
+\begin{enumerate}
+	\item Find the global parameters $\theta$ (the ECM parameters $R_0, R_1, \dots$).
+	\item Find the local initial states $x_i$ for \textit{each} interval $i \in [1, M]$.
+	\item Minimize the sum of simulation errors within all intervals.
+	\item Add a "continuity constraint" to the loss function, penalizing any mismatch between the simulated end-state of interval $i$ and the (optimized) initial state of interval $i+1$.
+\end{enumerate}
+
+This strategy stabilizes the optimization, as gradients only need to propagate through short time windows. Furthermore, the simulation of all $M$ intervals is perfectly parallelizable, which can be efficiently implemented using \texttt{jax.vmap}.
+
+\subsection{Advantages of the Grey-Box Approach}
+
+This \texttt{JAX/Diffrax} implementation provides significant advantages. It allows for the handling of fully non-linear models, which is impossible with transfer functions. Instead of identifying a table of static parameters for discrete SoC/Temp points, we can identify a single, \textbf{phenomenological model} where the parameters themselves are non-linear functions (e.g., $R_1 = f(SoC, T, \theta_{R1})$), and the optimizer finds the underlying coefficients $\theta_{R1}$. This results in a continuous model that generalizes across the entire operating range, bridges the gap between simple ECMs and complex physical models, and is a key concept in Scientific Machine Learning \cite{rackauckas2020universal}.
+
+\section{Proposed Hybrid LPV-NN Model Architecture}
+
+The central challenge in ECM accuracy, as established in the literature, is that the model parameters are not constant. They are highly non-linear functions of the battery's internal states, primarily the State of Charge (SoC) and temperature, as well as its State of Health (SoH) \cite{tran2021comprehensive, yang2023improved}. The "grey-box" identification method described previously is effective at finding a single, static set of parameters, $\theta_{p, nominal}$, valid at a specific operating point.
+
+To create a model with high fidelity across the entire operating range, we propose a hybrid, phenomenological model structured as a Linear Parameter-Varying (LPV) system. In this architecture, the underlying ECM structure (e.g., 2RC) and its state-space equations are preserved. However, the parameter vector $\theta_p = [R_0, R_1, C_1, R_2, C_2]^T$ is no longer static. Instead, it is defined as a dynamic function of a "scheduling vector," $\mathbf{x}$. As a first step, we define this vector by the most dominant non-linear dependency:
+\begin{equation}
+	\label{eq:scheduling_vector}
+	\mathbf{x} = [SoC(t)]
+\end{equation}
+(Note: This vector can be extended to $\mathbf{x} = [SoC(t), T(t), SoH(t)]$ in a more comprehensive model).
+
+\subsection{Parameter Variation Modeling}
+
+We propose modeling the instantaneous parameter value $\theta_p(\mathbf{x})$ as a non-linear deviation from the nominal parameters $\theta_{p, nominal}$ obtained via the grey-box identification. This relationship is defined as:
+
+\begin{equation}
+	\label{eq:lpv_param}
+	\theta_p(\mathbf{x}) = \theta_{p, nominal} \odot (1 + \delta_{NN}(\mathbf{x}))
+\end{equation}
+
+Where $\odot$ denotes element-wise multiplication, and $\delta_{NN}(\mathbf{x})$ is a vector of scaling factors output by a shallow Neural Network (NN). This NN is specifically tasked with learning the non-linear dependency $\delta = f(SoC)$. This formulation is advantageous as it anchors the model to a physically-identified baseline ($\theta_{p, nominal}$) and uses the NN only to learn the *variation*.
+
+\subsection{Proposed Neural Network Architectures}
+
+We propose exploring two primary architectures for the mapping function $\delta_{NN}(\mathbf{x})$:
+
+\subsubsection{Multi-Layer Perceptron (MLP)}
+A standard feed-forward neural network with one or two hidden layers. This network would take $SoC$ as its input and output the vector $\delta = [\delta_{R0}, \delta_{R1}, \dots]^T$.
+\begin{itemize}
+	\item \textbf{ReLU Activation:} Using the Rectified Linear Unit (ReLU) function in the hidden layers provides computational efficiency and helps mitigate vanishing gradient issues during training.
+	\item \textbf{Tanh Activation:} Using the hyperbolic tangent ($\tanh$) function for the \textit{output} layer is highly recommended. Since $\tanh$ bounds the output between [-1, 1], it naturally constrains the deviation $\delta$, preventing the optimizer from finding physically unrealistic parameters (e.g., it prevents $1+\delta$ from becoming negative and resulting in a negative resistance).
+\end{itemize}
+
+\subsubsection{Radial Basis Function Network (RBFN)}
+An RBFN is a powerful universal approximator, particularly well-suited for low-dimensional interpolation problems like this one \cite{broomhead1988radial}. The network's output is a weighted sum of radial basis functions. The key advantage is that the basis functions (e.g., `Gaussian` or `Inverse Quadratic`) create "local" responses, allowing the model to fit the parameter variations in specific SoC regions without adversely affecting others. This architecture is often more data-efficient than MLPs when the input dimension is small (i.e., only SoC).
+
+\subsection{Advantages of the Hybrid Approach}
+
+This hybrid "ECM-NN" approach merges the strengths of physics-informed and data-driven models.
+\begin{enumerate}
+	\item \textbf{Phenomenological Model:} It is not a "black-box" (like a pure NARX model \cite{takyi2023narx, xia2024hybrid}) because it retains the physically interpretable ECM state-space structure. The NN is only used to *schedule* the parameters for this physical structure.
+	\item \textbf{Non-linear Capability:} It explicitly captures the strong non-linear dependencies \cite{tran2021comprehensive} that simpler online methods (like standard RLS \cite{pai2023online}) or LTI models (`tfest`) ignore.
+	\item \textbf{Training Integration:} This entire hybrid model—the ECM's ODEs (solved by \texttt{Diffrax}) and the NN parameter functions—can be implemented as a single, end-to-end differentiable program in \texttt{JAX}. The NN weights simply become part of the overall parameter vector $\theta$ to be optimized by the grey-box solver, allowing the model to learn the parameter variations across the entire operating range from a single, dynamic dataset.
+\end{enumerate}
+
+\subsection{Advantages and Limitations of the Hybrid Approach}
+
+This hybrid "ECM-NN" approach merges the strengths of physics-informed and data-driven models.
+\begin{enumerate}
+	\item \textbf{Phenomenological Model:} It is not a "black-box" (like a pure NARX model \cite{takyi2023narx, xia2024hybrid}) because it retains the physically interpretable ECM state-space structure. The NN is only used to *schedule* the parameters for this physical structure.
+	
+	\item \textbf{Non-linear Capability:} It explicitly captures the strong non-linear dependencies \cite{tran2021comprehensive} that simpler online methods (like standard RLS \cite{pai2023online}) or LTI models (`tfest`) ignore.
+	
+	\item \textbf{Training Integration:} This entire hybrid model—the ECM's ODEs (solved by \texttt{Diffrax}) and the NN parameter functions—can be implemented as a single, end-to-end differentiable program in \texttt{JAX}. The NN weights simply become part of the overall parameter vector $\theta$ to be optimized by the grey-box solver.
+	
+	\item \textbf{Interpolation vs. Extrapolation Trade-off:} The use of NNs (MLPs or RBFNs) as function approximators allows the model to capture the complex non-linear parameter variations with high fidelity \textit{within the operating range of the training data}. This strong interpolation capability, however, comes with a well-known limitation of data-driven models: the risk of poor generalization and extrapolation. The model's accuracy is not guaranteed for operating regions (e.g., SoC or temperature ranges) that were not sufficiently represented in the training dataset \cite{valizadeh2024machine, kawahara2023battery}.
+\end{enumerate}
+
+\section{Results}
+
+\section{Conclusion}
+
+\bibliographystyle{ieeetr}
+\bibliography{referencias.tex}
+\end{document}

@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: template_Article.aux
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+The style file: ieeetr.bst
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+Database file #1: referencias.tex.bib
+Warning--I didn't find a database entry for "xie2023state"
+You've used 21 entries,
+            1876 wiz_defined-function locations,
+            600 strings with 8362 characters,
+and the built_in function-call counts, 6310 in all, are:
+= -- 617
+> -- 300
+< -- 0
++ -- 107
+- -- 86
+* -- 419
+:= -- 883
+add.period$ -- 21
+call.type$ -- 21
+change.case$ -- 21
+chr.to.int$ -- 0
+cite$ -- 21
+duplicate$ -- 369
+empty$ -- 516
+format.name$ -- 86
+if$ -- 1564
+int.to.chr$ -- 0
+int.to.str$ -- 21
+missing$ -- 21
+newline$ -- 66
+num.names$ -- 21
+pop$ -- 60
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 297
+stack$ -- 0
+substring$ -- 314
+swap$ -- 197
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 48
+width$ -- 23
+write$ -- 210
+(There was 1 warning)

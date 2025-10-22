@@ -1,0 +1,189 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.21)  22 OCT 2025 00:29
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./template_Article.tex
+(template_Article.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+(C:\Users\IDRZBOOK002\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\IDRZBOOK002\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+)
+(C:\Users\IDRZBOOK002\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backe
+nd-pdftex.def
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count283
+) (template_Article.aux)
+\openout1 = `template_Article.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 9.
+
+Overfull \hbox (1.69507pt too wide) in paragraph at lines 19--20
+[]\OT1/cmr/m/n/10 To en-sure this re-li-a-bil-ity, a so-phis-ti-cated Bat-tery 
+Man-age-ment Sys-tem (BMS)
+ []
+
+
+
+[1
+
+{C:/Users/IDRZBOOK002/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 36.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 36.
+
+
+[2]
+
+LaTeX Warning: Citation `xie2023state' on page 3 undefined on input line 55.
+
+
+
+[3]
+
+LaTeX Warning: Citation `xie2023state' on page 4 undefined on input line 78.
+
+
+Overfull \hbox (4.19124pt too wide) in paragraph at lines 82--82
+[]\OT1/cmr/bx/n/14.4 Second-Order Equiv-a-lent Cir-cuit Model (2RC) 
+ []
+
+
+
+[4]
+
+[5]
+
+[6]
+Overfull \hbox (1.16728pt too wide) in paragraph at lines 171--172
+\OT1/cmr/m/n/10 time-domain state-space rep-re-sen-ta-tion (Equa-tions 1[]-6[])
+ to the Laplace s-domain.
+ []
+
+
+
+[7]
+Overfull \hbox (1.26915pt too wide) in paragraph at lines 197--198
+\OT1/cmr/m/n/10 box" or "grey-box" sys-tem iden-ti-fi-ca-tion prob-lem. This pr
+o-cess is well-supported
+ []
+
+
+Overfull \hbox (33.33952pt too wide) in paragraph at lines 205--205
+[]\OT1/cmr/bx/n/14.4 Grey-Box Iden-ti-fi-ca-tion with Dif-fer-en-tiable Solvers
+ 
+ []
+
+
+
+[8]
+
+[9]
+Overfull \hbox (6.6006pt too wide) in paragraph at lines 259--260
+\OT1/cmr/m/n/10 We pro-pose ex-plor-ing two pri-mary ar-chi-tec-tures for the m
+ap-ping func-tion $\OML/cmm/m/it/10 ^^N[]\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 x\OT
+1/cmr/m/n/10 )$: 
+ []
+
+
+
+[10]
+
+[11] (template_Article.bbl
+
+! LaTeX Error: Invalid UTF-8 byte sequence (Ä.).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 M.~Tekin and M.~Ä.
+                       Karamangil, ``Comparative analysis of equivalent circuit
+
+The document does not appear to be in UTF-8 encoding.
+Try adding \UseRawInputEncoding as the first line of the file
+or specify an encoding such as \usepackage [latin1]{inputenc}
+in the document preamble.
+Alternatively, save the file in UTF-8 using your editor or another tool
+
+
+
+[12]
+
+[13])
+
+[14] (template_Article.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 528 strings out of 468080
+ 9977 string characters out of 5422863
+ 443696 words of memory out of 5000000
+ 29259 multiletter control sequences out of 15000+600000
+ 634051 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 35i,6n,38p,986b,225s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\IDRZBOOK002\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1000.pk><C:/Users/IDRZBOOK002/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb><C:/Users/IDRZBOOK002/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/IDRZBOOK002/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/IDRZBOOK002
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Us
+ers/IDRZBOOK002/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb><C:/Users/IDRZBOOK002/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><C:/Users/IDRZBOOK002/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/IDRZBOOK002/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/IDRZBOOK002/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/IDRZBO
+OK002/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
+/Users/IDRZBOOK002/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb><C:/Users/IDRZBOOK002/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb><C:/Users/IDRZBOOK002/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on template_Article.pdf (14 pages, 232225 bytes).
+PDF statistics:
+ 118 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

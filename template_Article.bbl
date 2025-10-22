@@ -1,0 +1,120 @@
+\begin{thebibliography}{10}
+
+\bibitem{mawuntu2023modeling}
+N.~N. Mawuntu, B.-Q. Mu, O.~Doukhi, and D.-J. Lee, ``Modeling of the battery
+  pack and battery management system towards an integrated electric vehicle
+  application,'' {\em Energies}, vol.~16, no.~20, p.~7165, 2023.
+
+\bibitem{tekin2024comparative}
+M.~Tekin and M.~Ä. Karamangil, ``Comparative analysis of equivalent circuit
+  battery models for electric vehicle battery management systems,'' {\em
+  Journal of Energy Storage}, vol.~86, p.~111327, 2024.
+
+\bibitem{damodaran2024fast}
+V.~Damodaran, T.~Paramadayalan, D.~Natarajan, R.~Kumar~C, P.~R. Kanna,
+  D.~Taler, T.~Sobota, J.~Taler, M.~Szymkiewicz, and M.~J. Ahamed,
+  ``Development of a fast running equivalent circuit model with thermal
+  predictions for battery management applications,'' {\em Batteries}, vol.~10,
+  no.~6, p.~215, 2024.
+
+\bibitem{tran2021comprehensive}
+M.-K. Tran, M.~Mathew, S.~Janhunen, S.~Panchal, K.~Raahemifar, R.~Fraser, and
+  M.~Fowler, ``A comprehensive equivalent circuit model for lithium-ion
+  batteries, incorporating the effects of state of health, state of charge, and
+  temperature on model parameters,'' {\em Journal of Energy Storage}, vol.~43,
+  p.~103252, 2021.
+
+\bibitem{piruzjam2024analytical}
+J.~Piruzjam, G.~Liu, L.~Rubacek, M.~Frey, and T.~Carraro, ``On the analytical
+  solution of single particle models and semi-analytical solution of p2d model
+  for lithium-ion batteries,'' {\em Electrochimica Acta}, vol.~492, p.~144259,
+  2024.
+
+\bibitem{khalik2021model}
+Z.~Khalik, M.~C.~F. Donkers, and H.~J. Bergveld, ``Model simplifications and
+  their impact on computational complexity for an electrochemistry-based
+  battery modeling toolbox,'' {\em Journal of Power Sources}, vol.~488,
+  p.~229427, 2021.
+
+\bibitem{li2018single}
+J.~Li, K.~Adewuyi, N.~Lotfi, R.~G. Landers, and J.~Park, ``A single particle
+  model with chemical/mechanical degradation physics for lithium ion battery
+  state of health (soh) estimation,'' {\em Applied Energy}, vol.~212,
+  pp.~1178--1190, 2018.
+
+\bibitem{drummond2019observer}
+R.~Drummond and S.~R. Duncan, ``Observer design for the doyle-fuller-newman
+  li-ion battery model without electrolyte dynamics,'' {\em Journal of Energy
+  Storage}, vol.~23, pp.~250--257, 2019.
+
+\bibitem{kawahara2023battery}
+T.~Kawahara, K.~Sato, and Y.~Sato, ``Battery voltage prediction technology
+  using machine learning model with high extrapolation accuracy,'' {\em
+  International Journal of Energy Research}, vol.~2023, p.~5513446, 2023.
+
+\bibitem{wang2021coestimation}
+Q.~Wang, M.~Ye, M.~Wei, G.~Lian, and C.~Wu, ``Co-estimation of state of charge
+  and capacity for lithium-ion battery based on recurrent neural network and
+  support vector machine,'' {\em Energy Reports}, vol.~7, pp.~7323--7332, 2021.
+
+\bibitem{xia2024hybrid}
+Z.~Xia and Y.~Wu, ``A hybrid network of narx and ds-attention applied for the
+  state estimation of lithium-ion batteries,'' {\em International Journal of
+  Electrochemical Science}, vol.~19, p.~100632, 2024.
+
+\bibitem{valizadeh2024machine}
+A.~Valizadeh and M.~H. Amirhosseini, ``Machine learning in lithium-ion battery:
+  Applications, challenges, and future trends,'' {\em SN Computer Science},
+  vol.~5, no.~717, 2024.
+
+\bibitem{khalfi2021electric}
+J.~Khalfi, N.~Boumaaz, A.~Soulmani, and E.~M. Laadissi, ``An electric circuit
+  model for a lithium-ion battery cell based on automotive drive cycles
+  measurements,'' {\em International Journal of Electrical and Computer
+  Engineering (IJECE)}, vol.~11, no.~4, pp.~2798--2810, 2021.
+
+\bibitem{pai2023online}
+H.~Y. Pai, Y.~H. Liu, and S.~P. Ye, ``Online estimation of lithium-ion battery
+  equivalent circuit model parameters and state of charge using time-domain
+  assisted decoupled recursive least squares technique,'' {\em Journal of
+  Energy Storage}, vol.~62, p.~106901, 2023.
+
+\bibitem{yang2023improved}
+Z.~Yang and X.~Wang, ``An improved parameter identification method considering
+  multi-timescale characteristics of lithium-ion batteries,'' {\em Journal of
+  Energy Storage}, vol.~59, p.~106462, 2023.
+
+\bibitem{beelen2018experiment}
+H.~P. G.~J. Beelen, H.~J. Bergveld, and M.~C.~F. Donkers, ``On experiment
+  design for parameter estimation of equivalent-circuit battery models,'' in
+  {\em 2018 IEEE Conference on Control Technology and Applications (CCTA)},
+  pp.~356--361, 2018.
+
+\bibitem{khalfi2021boxjenkins}
+J.~Khalfi, N.~Boumaaz, A.~Soulmani, and E.~M. Laadissi, ``Box--jenkins
+  black-box modeling of a lithium-ion battery cell based on automotive drive
+  cycle data,'' {\em World Electric Vehicle Journal}, vol.~12, no.~3, p.~102,
+  2021.
+
+\bibitem{kidger2021diffrax}
+P.~Kidger and T.~Lyons, ``{Diffrax: a JAX library for numerical differential
+  equation solving},'' {\em arXiv preprint arXiv:2106.13642}, 2021.
+
+\bibitem{rackauckas2020universal}
+C.~Rackauckas, Y.~Ma, J.~Martensen, C.~O'Connor, J.~G{\"o}ttling, C.~Schaub,
+  J.~D'Ambrosio, S.~Agrawal, U.~An, A.~Al-Hajri, {\em et~al.}, ``Universal
+  differential equations for scientific machine learning,'' {\em arXiv preprint
+  arXiv:2001.04385}, 2020.
+
+\bibitem{broomhead1988radial}
+D.~S. Broomhead and D.~Lowe, ``Radial basis functions, multi-variable
+  functional interpolation and adaptive networks,'' {\em Royal Signals and
+  Radar Establishment Memorandum}, vol.~4148, 1988.
+
+\bibitem{takyi2023narx}
+P.~Takyi-Aninakwa, S.~Wang, H.~Zhang, Y.~Xiao, and C.~Fernandez, ``A narx
+  network optimized with an adaptive weighted square-root cubature kalman
+  filter for the dynamic state of charge estimation of lithium-ion batteries,''
+  {\em Journal of Energy Storage}, vol.~68, p.~107728, 2023.
+
+\end{thebibliography}
