@@ -90,6 +90,23 @@ H.~P. G.~J. Beelen, H.~J. Bergveld, and M.~C.~F. Donkers, ``On experiment
   {\em 2018 IEEE Conference on Control Technology and Applications (CCTA)},
   pp.~356--361, 2018.
 
+\bibitem{xie2023state}
+J.~Xie, X.~Wei, X.~Bo, P.~Zhang, P.~Chen, W.~Hao, and M.~Yuan, ``State of
+  charge estimation of lithium-ion battery based on extended kalman filter
+  algorithm,'' {\em Frontiers in Energy Research}, vol.~11, 2023.
+
+\bibitem{Tao2023}
+Z.~Tao, Z.~Zhao, F.~Fan, H.~Jie, Y.~Chang, and K.~Y. See, ``High precision soc
+  estimation of lifepo4 blade batteries using improved ocv-based pngv model,''
+  {\em IECON Proceedings (Industrial Electronics Conference)}, 2023.
+
+\bibitem{Xinyu2025}
+Y.~Xinyu, W.~Shunli, X.~Tao, C.~Liangwei, C.~Fernandez, and F.~Blaabjerg,
+  ``Improved 2rc-pngv modeling and adaptive sage-husa h infinity filtering for
+  battery power state estimation based on multi-parameter constraints,'' {\em
+  American Journal of Energy Engineering 2025, Volume 13, Page 133}, vol.~13,
+  pp.~133--141, 8 2025.
+
 \bibitem{khalfi2021boxjenkins}
 J.~Khalfi, N.~Boumaaz, A.~Soulmani, and E.~M. Laadissi, ``Box--jenkins
   black-box modeling of a lithium-ion battery cell based on automotive drive
