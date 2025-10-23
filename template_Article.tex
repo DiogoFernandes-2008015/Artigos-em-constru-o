@@ -129,10 +129,10 @@ The targeted enhancements of the 2RC-PNGV modeling frameworks lead to measurable
 
 An alternative approach to parameter identification involves moving from the time-domain state-space representation to the Laplace s-domain. This method treats the battery as a linear system and approximates its behavior using a transfer function (TF). The ECM's transfer function can be derived by applying the Laplace transform to the output equation, assuming the input is the current $I(s)$ and a linear relation between the OCV and SOC ($V_{OCV}=kSOC$).
 
-For the 1RC model, the impedance $Z(s)$ is:
+For the 1RC model, the transfer function is:
 \begin{equation}
 	\label{eq:tf_1rc}
-	Z_{1RC}(s) = \frac{V_{drop}(s)}{I(s)} = R_0 + \frac{R_1}{sR_1C_1 + 1}
+	V_{t,1RC}(s) = -\left[\frac{k\eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}\right]I(s)+ \frac{kSOC(0)}{s}
 \end{equation}
 
 Similarly, for the 2RC model, the impedance is the sum of the components:
@@ -204,3 +204,4 @@ The hybrid ECM–NN approach combines physics-informed interpretability with dat
 \bibliographystyle{ieeetr}
 \bibliography{export.bib}
 \end{document}	
+
