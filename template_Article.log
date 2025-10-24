@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.7)  23 OCT 2025 16:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.7)  23 OCT 2025 22:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -406,25 +406,73 @@ Underfull \hbox (badness 1509) in paragraph at lines 122--123
 \OT1/ptm/m/n/10 non-linear, es-pe-cially for LFP (Lithium Iron Phos-phate)
  []
 
+! Missing delimiter (. inserted).
+<to be read again> 
+                   {
+l.141 ...eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}+\right\\
+                                                  
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
+! Missing delimiter (. inserted).
+<to be read again> 
+                   +
+l.142 	\nonumber \left +
+                        \frac{1}{1+R_2C_2s}\right]I(s)+ \frac{kSoC(0)}{s}
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
+! Missing delimiter (. inserted).
+<to be read again> 
+                   {
+l.147 ...frac{1}{C_0}+\frac{1}{1+R_1C_1s}+\right\\
+                                                  
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
+! Missing delimiter (. inserted).
+<to be read again> 
+                   +
+l.148 	\nonumber\left +
+                       \frac{1}{1+R_2C_2s}\right]I(s)+ \frac{kSoC(0)}{s}
+I was expecting to see something like `(' or `\{' or
+`\}' here. If you typed, e.g., `{' instead of `\{', you
+should probably delete the `{' by typing `1' now, so that
+braces don't get unbalanced. Otherwise just proceed.
+Acceptable delimiters are characters whose \delcode is
+nonnegative, or you can use `\delimiter <delimiter code>'.
+
 
 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-48.
+55.
 (C:\Users\Lenovo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-54.
+61.
 
 (C:\Users\Lenovo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1924) in paragraph at lines 154--155
+Underfull \hbox (badness 1924) in paragraph at lines 161--162
 []\OT1/ptm/m/n/10 A mod-ern so-lu-tion is found in the Python en-vi-ron-
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 154--155
+Underfull \hbox (badness 3240) in paragraph at lines 161--162
 \OT1/ptm/m/n/10 lever-ages the \OT1/pcr/m/n/10 JAX \OT1/ptm/m/n/10 li-brary for
  au-to-matic dif-fer-en-ti-a-tion
  []
@@ -433,7 +481,9 @@ Underfull \hbox (badness 3240) in paragraph at lines 154--155
 
 [3]
 
-(template_Article.bbl
+
+
+[4] (template_Article.bbl
 
 ! LaTeX Error: Invalid UTF-8 byte sequence (Ä.).
 
@@ -452,44 +502,43 @@ Alternatively, save the file in UTF-8 using your editor or another tool
 
 
 
-[4])
+)
 
-
-
-[5
-
-] (template_Article.aux)
+[5] (template_Article.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4704 strings out of 473523
- 82376 string characters out of 5714147
- 488765 words of memory out of 5000000
- 27875 multiletter control sequences out of 15000+600000
+ 4709 strings out of 473523
+ 82506 string characters out of 5714147
+ 488789 words of memory out of 5000000
+ 27880 multiletter control sequences out of 15000+600000
  593873 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,1157b,271s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,7n,65p,1157b,232s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmmi10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lenovo/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Lenovo/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Lenovo/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Len
-ovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
-Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><
-C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb>
-<C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pf
-b><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.p
-fb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a
-.pfb>
-Output written on template_Article.pdf (5 pages, 174789 bytes).
+msfonts/cm/cmex10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Lenovo/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lenovo/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lenovo/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Le
+novo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
+Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmsy5.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/urw/courier/ucrr8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts
+/type1/urw/times/utmb8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/font
+s/type1/urw/times/utmbi8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fo
+nts/type1/urw/times/utmr8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/f
+onts/type1/urw/times/utmri8a.pfb>
+Output written on template_Article.pdf (5 pages, 209436 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

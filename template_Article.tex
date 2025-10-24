@@ -127,19 +127,26 @@ The targeted enhancements of the 2RC-PNGV modeling frameworks lead to measurable
 
 \subsection{Transfer function model}
 
-An alternative approach to parameter identification involves moving from the time-domain state-space representation to the Laplace s-domain. This method treats the battery as a linear system and approximates its behavior using a transfer function (TF). The ECM's transfer function can be derived by applying the Laplace transform to the output equation, assuming the input is the current $I(s)$ and a linear relation between the OCV and SOC ($V_{OCV}=kSOC$).
+An alternative approach to parameter identification moves from the time-domain state-space representation to the Laplace s-domain, treating the battery as a linear system and approximating its behavior with a transfer function, the ECM transfer function being obtained by applying the Laplace transform to the output equation under the assumptions that the input is the current $\left(I(s)\right)$ and that the OCV–SoC relation is linear $\left(V_{OCV}=k\,SoC\right)$, and it is important to note that the initial conditions are not zero since the initial SoC is typically close to 1 .
 
-For the 1RC model, the transfer function is:
+Therefore, for the 1RC model the transfer function is:
 \begin{equation}
 	\label{eq:tf_1rc}
-	V_{t,1RC}(s) = -\left[\frac{k\eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}\right]I(s)+ \frac{kSOC(0)}{s}
+	V_{t,1RC}(s) = -\left[\frac{k\eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}\right]I(s)+ \frac{kSoC(0)}{s}
 \end{equation}
 
-Similarly, for the 2RC model, the impedance is the sum of the components:
-\begin{equation}
+Similarly, for the 2RC model and for the 2-RC PNGV, respectively:
+\begin{eqnarray}
 	\label{eq:tf_2rc}
-	Z_{2RC}(s) = \frac{V_{drop}(s)}{I(s)} = R_0 + \frac{R_1}{sR_1C_1 + 1} + \frac{R_2}{sR_2C_2 + 1}
-\end{equation}
+	V_{t,2RC}(s) = -\left[\frac{k\eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}+\right\\
+	\nonumber \left +\frac{1}{1+R_2C_2s}\right]I(s)+ \frac{kSoC(0)}{s}
+\end{eqnarray}
+
+\begin{eqnarray}
+	\label{eq:tf_pngv}
+	V_{t,PNGV}(s) = -\left[\frac{k\eta}{Qs}+R_0+\frac{1}{C_0}+\frac{1}{1+R_1C_1s}+\right\\
+	\nonumber\left +\frac{1}{1+R_2C_2s}\right]I(s)+ \frac{kSoC(0)}{s}
+\end{eqnarray}
 
 While powerful, this approach is only valid if the system is assumed to be linear time invariant (LTI), which implies that the parameters are modeled as constants and the relationship between SOC and OCV must be also linear, which also implies due to the system's non-linearities, that the obtained transfer function would only approximate its dynamics locally.
 
@@ -194,10 +201,54 @@ A standard feedforward neural network with a single hidden layer is proposed, ta
 
 An RBFN is a powerful universal approximator, particularly well-suited for low-dimensional interpolation problems\cite{broomhead1988radial}, where the network's output is a weighted sum of radial basis functions. The key advantage is that the basis functions create "local" responses, allowing the model to fit the parameter variations in specific SoC regions without adversely affecting others. This architecture is often more data-efficient than MLPs when the input dimension is small\cite{broomhead1988radial}.
 
+Considering $c$ as the center of a neuron, $\beta$ as the spread, and $w$ as the weight of the activation function, the adopted radial basis functions are described bellow:
+\begin{itemize}
+	\item Gaussian:
+	\begin{equation}
+		f(x)=we^{\frac{-\|x-c\|^2}{2\beta^2}}
+	\end{equation}
+	\item Inverse Quadric:
+	\begin{equation}
+		f(x) = \frac{w}{\|x-c\|^2+\beta^2}
+	\end{equation}
+	\item Inverse Quadratic:
+	\begin{equation}
+		f(x) = \frac{w}{\sqrt{\|x-c\|^2+\beta^2}}
+	\end{equation}
+	\item Hyperbolic Tangent
+	\begin{equation}
+		f(x) = 1-\tanh\left(\frac{\|x-c\|^2}{2\beta^2}\right)
+	\end{equation}
+	\item Thin Plate Spline:
+	\begin{equation}
+		f(x) = \|x-c\|^2\log\left(\|x-c\|\right)
+	\end{equation}
+\end{itemize}
+
 \subsubsection{Advantages and limitations of the Hybrid Approach}
 
 The hybrid ECM–NN approach combines physics-informed interpretability with data-driven flexibility by preserving the ECM state-space and using the neural network exclusively to schedule model parameters rather than to function as a black box \cite{takyi2023narx, xia2024hybrid} It captures strong nonlinear dependencies that simpler online estimators such as standard RLS or LTI transfer-function methods fail to represent \cite{tran2021comprehensive, pai2023online} By implementing the ECM ODEs solved with \texttt{Diffrax} together with the NN parameter functions as a single differentiable program in \texttt{JAX}, the NN weights are incorporated into the overall parameter vector ($\theta$) optimized by the grey-box solver, enabling the model to learn parameter variations across the operating range from a single dynamic dataset This integration yields high-fidelity interpolation within the training domain while retaining the intrinsic risk of poor generalization and extrapolation for underrepresented SoC or temperature regions in the dataset \cite{valizadeh2024machine, kawahara2023battery}.
+
+\subsection{Performance Metrics}
+
+To evaluete and compare the performance of the system identification techniques presented in this paper, the mean square error (MSE), and the $R^2$ correlation factor were calculated. These metrics are described by the following equations:
+
+\begin{equation}
+	MSE = \frac{\sum_{i=1}^{N}(y_i-\hat{y}_i)^2}{N}
+\end{equation}
+\begin{equation}
+	R^2 = 1-\frac{\sum_{k=1}^N(y(k)-\hat{y}(k))^2}{\sum_{k=1}^N(y(k)-\bar{y})^2}
+\end{equation}
+where $N$ is the number of samples and $\bar{y}$ is the mean value of all output samples.
+
+
+\section{Experimental Dataset}
+
 \section{Results}
+
+The settings used to tune the ECMs along the different system identification techniques proposed are shown in Table .
+
+
 
 \section{Conclusion}
 
