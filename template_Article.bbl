@@ -73,6 +73,12 @@ J.~Khalfi, N.~Boumaaz, A.~Soulmani, and E.~M. Laadissi, ``An electric circuit
   measurements,'' {\em International Journal of Electrical and Computer
   Engineering (IJECE)}, vol.~11, no.~4, pp.~2798--2810, 2021.
 
+\bibitem{Sheikh2024}
+A.~M. Sheikh, M.~C. Donkers, and H.~J. Bergveld, ``A comprehensive approach to
+  sparse identification of linear parameter-varying models for lithium-ion
+  batteries using improved experimental design,'' {\em Journal of Energy
+  Storage}, vol.~95, p.~112581, 8 2024.
+
 \bibitem{pai2023online}
 H.~Y. Pai, Y.~H. Liu, and S.~P. Ye, ``Online estimation of lithium-ion battery
   equivalent circuit model parameters and state of charge using time-domain
@@ -127,6 +133,18 @@ C.~Rackauckas, Y.~Ma, J.~Martensen, C.~O'Connor, J.~G{\"o}ttling, C.~Schaub,
 D.~S. Broomhead and D.~Lowe, ``Radial basis functions, multi-variable
   functional interpolation and adaptive networks,'' {\em Royal Signals and
   Radar Establishment Memorandum}, vol.~4148, 1988.
+
+\bibitem{Sahoo2023LBFGS}
+A.~K. Sahoo and S.~Chakraverty, ``Modeling of mexican hat wavelet neural
+  network with {L-BFGS} algorithm for simulating the recycling procedure of
+  waste plastic in ocean,'' {\em Journal of Engineering Management and Systems
+  Engineering}, vol.~2, no.~1, pp.~61--75, 2023.
+
+\bibitem{Kumar2024Corneal}
+N.~Kumar, S.~Singh, and V.~Kumar, ``Design of evolutionary computational
+  intelligent solver for nonlinear corneal shape model by {Mexican Hat} and
+  {Gaussian} wavelet neural networks,'' {\em Waves in Random and Complex
+  Media}, pp.~1--18, 2024.
 
 \bibitem{takyi2023narx}
 P.~Takyi-Aninakwa, S.~Wang, H.~Zhang, Y.~Xiao, and C.~Fernandez, ``A narx

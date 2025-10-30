@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.7)  23 OCT 2025 22:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.7)  30 OCT 2025 11:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -385,6 +385,11 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
+<ECM models.jpg, id=1, 576.9555pt x 375.804pt>
+File: ECM models.jpg Graphic file (type jpg)
+<use ECM models.jpg>
+Package pdftex.def Info: ECM models.jpg  used on input line 48.
+(pdftex.def)             Requested size: 176.39923pt x 114.89816pt.
 
 
 [1{C:/Users/Lenovo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/L
@@ -395,21 +400,23 @@ enovo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 
 
 
-[2]
-Underfull \hbox (badness 1484) in paragraph at lines 122--123
+[2 <./ECM models.jpg>]
+Underfull \hbox (badness 1484) in paragraph at lines 129--130
 []\OT1/ptm/m/n/10 The $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 So
 C\OT1/cmr/m/n/10 )$ \OT1/ptm/m/n/10 re-la-tion-ship is known to be highly
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 122--123
+Underfull \hbox (badness 1509) in paragraph at lines 129--130
 \OT1/ptm/m/n/10 non-linear, es-pe-cially for LFP (Lithium Iron Phos-phate)
  []
+
+
 
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.141 ...eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}+\right\\
+l.148 ...eta}{Qs}+R_0+\frac{1}{1+R_1C_1s}+\right\\
                                                   
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -421,7 +428,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    +
-l.142 	\nonumber \left +
+l.149 	\nonumber \left +
                         \frac{1}{1+R_2C_2s}\right]I(s)+ \frac{kSoC(0)}{s}
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -433,7 +440,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    {
-l.147 ...frac{1}{C_0}+\frac{1}{1+R_1C_1s}+\right\\
+l.154 ...frac{1}{C_0}+\frac{1}{1+R_1C_1s}+\right\\
                                                   
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -445,7 +452,7 @@ nonnegative, or you can use `\delimiter <delimiter code>'.
 ! Missing delimiter (. inserted).
 <to be read again> 
                    +
-l.148 	\nonumber\left +
+l.155 	\nonumber\left +
                        \frac{1}{1+R_2C_2s}\right]I(s)+ \frac{kSoC(0)}{s}
 I was expecting to see something like `(' or `\{' or
 `\}' here. If you typed, e.g., `{' instead of `\{', you
@@ -454,25 +461,23 @@ braces don't get unbalanced. Otherwise just proceed.
 Acceptable delimiters are characters whose \delcode is
 nonnegative, or you can use `\delimiter <delimiter code>'.
 
-
-
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-55.
+62.
 (C:\Users\Lenovo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-61.
+68.
 
 (C:\Users\Lenovo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1924) in paragraph at lines 161--162
+Underfull \hbox (badness 1924) in paragraph at lines 168--169
 []\OT1/ptm/m/n/10 A mod-ern so-lu-tion is found in the Python en-vi-ron-
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 161--162
+Underfull \hbox (badness 3240) in paragraph at lines 168--169
 \OT1/ptm/m/n/10 lever-ages the \OT1/pcr/m/n/10 JAX \OT1/ptm/m/n/10 li-brary for
  au-to-matic dif-fer-en-ti-a-tion
  []
@@ -482,8 +487,17 @@ Underfull \hbox (badness 3240) in paragraph at lines 161--162
 [3]
 
 
+Underfull \hbox (badness 1603) in paragraph at lines 201--202
+[]\OT1/ptm/m/n/10 Three pri-mary ar-chi-tec-tures for the map-ping func-tion
+ []
 
-[4] (template_Article.bbl
+
+
+[4]
+
+
+
+[5] (template_Article.bbl
 
 ! LaTeX Error: Invalid UTF-8 byte sequence (Ä.).
 
@@ -504,41 +518,43 @@ Alternatively, save the file in UTF-8 using your editor or another tool
 
 )
 
-[5] (template_Article.aux)
+[6] (template_Article.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4709 strings out of 473523
- 82506 string characters out of 5714147
- 488789 words of memory out of 5000000
- 27880 multiletter control sequences out of 15000+600000
- 593873 words of font info for 100 fonts, out of 8000000 for 9000
+ 4762 strings out of 473523
+ 83321 string characters out of 5714147
+ 494872 words of memory out of 5000000
+ 27923 multiletter control sequences out of 15000+600000
+ 599318 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,7n,65p,1157b,232s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,9n,65p,1329b,258s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmex10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Lenovo/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Lenovo/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Lenovo/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Le
-novo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/
-Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmsy5.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmsy7.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/urw/courier/ucrr8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts
-/type1/urw/times/utmb8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/font
-s/type1/urw/times/utmbi8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fo
-nts/type1/urw/times/utmr8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/f
-onts/type1/urw/times/utmri8a.pfb>
-Output written on template_Article.pdf (5 pages, 209436 bytes).
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Lenovo/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/L
+enovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Lenovo/AppData/Local/Program
+s/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Lenovo/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Lenovo/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Lenovo/AppData/Local/P
+rograms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Lenovo/AppData/Local/
+Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on template_Article.pdf (6 pages, 293388 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
+ 113 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
