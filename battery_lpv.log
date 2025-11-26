@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.7)  25 NOV 2025 00:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.7)  26 NOV 2025 00:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -395,36 +395,36 @@ enovo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
 <ECM models.jpg, id=14, 576.9555pt x 375.804pt>
 File: ECM models.jpg Graphic file (type jpg)
 <use ECM models.jpg>
-Package pdftex.def Info: ECM models.jpg  used on input line 48.
+Package pdftex.def Info: ECM models.jpg  used on input line 49.
 (pdftex.def)             Requested size: 176.39923pt x 114.89816pt.
 
 
 
 
 [2 <./ECM models.jpg>]
-Underfull \hbox (badness 1484) in paragraph at lines 129--130
+Underfull \hbox (badness 1484) in paragraph at lines 130--131
 []\OT1/ptm/m/n/10 The $\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 So
 C\OT1/cmr/m/n/10 )$ \OT1/ptm/m/n/10 re-la-tion-ship is known to be highly
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 129--130
+Underfull \hbox (badness 1509) in paragraph at lines 130--131
 \OT1/ptm/m/n/10 non-linear, es-pe-cially for LFP (Lithium Iron Phos-phate)
  []
 
 
 
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-38.
+39.
 (C:\Users\Lenovo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 1924) in paragraph at lines 138--139
+Underfull \hbox (badness 1924) in paragraph at lines 139--140
 []\OT1/ptm/m/n/10 A mod-ern so-lu-tion is found in the Python en-vi-ron-
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 138--139
+Underfull \hbox (badness 3240) in paragraph at lines 139--140
 \OT1/ptm/m/n/10 lever-ages the \OT1/pcr/m/n/10 JAX \OT1/ptm/m/n/10 li-brary for
  au-to-matic dif-fer-en-ti-a-tion
  []
@@ -432,7 +432,13 @@ Underfull \hbox (badness 3240) in paragraph at lines 138--139
 
 
 [3]
-Underfull \hbox (badness 1603) in paragraph at lines 171--172
+<hybarq.jpg, id=26, 445.06274pt x 127.677pt>
+File: hybarq.jpg Graphic file (type jpg)
+<use hybarq.jpg>
+Package pdftex.def Info: hybarq.jpg  used on input line 174.
+(pdftex.def)             Requested size: 252.0pt x 72.29349pt.
+
+Underfull \hbox (badness 1603) in paragraph at lines 180--181
 []\OT1/ptm/m/n/10 Three pri-mary ar-chi-tec-tures for the map-ping func-tion
  []
 
@@ -440,7 +446,7 @@ Underfull \hbox (badness 1603) in paragraph at lines 171--172
 
 
 
-[4]
+[4 <./hybarq.jpg>]
 
 Package epstopdf Info: Source file: <traindataset.eps>
 (epstopdf)                    date: 2025-10-30 16:00:33
@@ -450,13 +456,13 @@ Package epstopdf Info: Source file: <traindataset.eps>
 (epstopdf)                    size: 95410 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=traindataset-eps-con
 verted-to.pdf traindataset.eps>
-(epstopdf)             \includegraphics on input line 258.
+(epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
-<traindataset-eps-converted-to.pdf, id=33, 364.36125pt x 294.09875pt>
+<traindataset-eps-converted-to.pdf, id=34, 364.36125pt x 294.09875pt>
 File: traindataset-eps-converted-to.pdf Graphic file (type pdf)
 <use traindataset-eps-converted-to.pdf>
 Package pdftex.def Info: traindataset-eps-converted-to.pdf  used on input line 
-258.
+267.
 (pdftex.def)             Requested size: 214.20154pt x 172.89297pt.
 Package epstopdf Info: Source file: <valdataset.eps>
 (epstopdf)                    date: 2025-10-30 15:59:53
@@ -466,13 +472,13 @@ Package epstopdf Info: Source file: <valdataset.eps>
 (epstopdf)                    size: 184857 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=valdataset-eps-conve
 rted-to.pdf valdataset.eps>
-(epstopdf)             \includegraphics on input line 265.
+(epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
-<valdataset-eps-converted-to.pdf, id=34, 370.38374pt x 296.10625pt>
+<valdataset-eps-converted-to.pdf, id=35, 370.38374pt x 296.10625pt>
 File: valdataset-eps-converted-to.pdf Graphic file (type pdf)
 <use valdataset-eps-converted-to.pdf>
-Package pdftex.def Info: valdataset-eps-converted-to.pdf  used on input line 26
-5.
+Package pdftex.def Info: valdataset-eps-converted-to.pdf  used on input line 27
+4.
 (pdftex.def)             Requested size: 214.20154pt x 171.24474pt.
 Package epstopdf Info: Source file: <ocvsoc.eps>
 (epstopdf)                    date: 2025-10-30 20:15:01
@@ -482,25 +488,20 @@ Package epstopdf Info: Source file: <ocvsoc.eps>
 (epstopdf)                    size: 11396 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=ocvsoc-eps-converted
 -to.pdf ocvsoc.eps>
-(epstopdf)             \includegraphics on input line 272.
+(epstopdf)             \includegraphics on input line 281.
 Package epstopdf Info: Output file is already uptodate.
-<ocvsoc-eps-converted-to.pdf, id=35, 929.4725pt x 440.64626pt>
+<ocvsoc-eps-converted-to.pdf, id=36, 929.4725pt x 440.64626pt>
 File: ocvsoc-eps-converted-to.pdf Graphic file (type pdf)
 <use ocvsoc-eps-converted-to.pdf>
-Package pdftex.def Info: ocvsoc-eps-converted-to.pdf  used on input line 272.
+Package pdftex.def Info: ocvsoc-eps-converted-to.pdf  used on input line 281.
 (pdftex.def)             Requested size: 176.39923pt x 83.6228pt.
 
-Underfull \vbox (badness 1137) has occurred while \output is active []
-
-
-
-[5 <./traindataset-eps-converted-to.pdf> <./valdataset-eps-converted-to.pdf>]
-Overfull \hbox (14.96104pt too wide) in paragraph at lines 286--302
+Overfull \hbox (14.96104pt too wide) in paragraph at lines 295--311
  [][] 
  []
 
 
-Overfull \hbox (21.2943pt too wide) in paragraph at lines 306--322
+Overfull \hbox (21.2943pt too wide) in paragraph at lines 315--331
  [][] 
  []
 
@@ -512,13 +513,17 @@ Package epstopdf Info: Source file: <2rchyb.eps>
 (epstopdf)                    size: 350682 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=2rchyb-eps-converted
 -to.pdf 2rchyb.eps>
-(epstopdf)             \includegraphics on input line 329.
+(epstopdf)             \includegraphics on input line 338.
 Package epstopdf Info: Output file is already uptodate.
-<2rchyb-eps-converted-to.pdf, id=55, 1173.38374pt x 554.07pt>
+<2rchyb-eps-converted-to.pdf, id=37, 1173.38374pt x 554.07pt>
 File: 2rchyb-eps-converted-to.pdf Graphic file (type pdf)
 <use 2rchyb-eps-converted-to.pdf>
-Package pdftex.def Info: 2rchyb-eps-converted-to.pdf  used on input line 329.
+Package pdftex.def Info: 2rchyb-eps-converted-to.pdf  used on input line 338.
 (pdftex.def)             Requested size: 252.0pt x 118.98746pt.
+
+
+[5 <./traindataset-eps-converted-to.pdf>]
+
 Package epstopdf Info: Source file: <scatplot.eps>
 (epstopdf)                    date: 2025-11-05 19:01:18
 (epstopdf)                    size: 907222 bytes
@@ -527,12 +532,12 @@ Package epstopdf Info: Source file: <scatplot.eps>
 (epstopdf)                    size: 1977379 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=scatplot-eps-convert
 ed-to.pdf scatplot.eps>
-(epstopdf)             \includegraphics on input line 339.
+(epstopdf)             \includegraphics on input line 348.
 Package epstopdf Info: Output file is already uptodate.
-<scatplot-eps-converted-to.pdf, id=56, 1173.38374pt x 551.05875pt>
+<scatplot-eps-converted-to.pdf, id=49, 1173.38374pt x 551.05875pt>
 File: scatplot-eps-converted-to.pdf Graphic file (type pdf)
 <use scatplot-eps-converted-to.pdf>
-Package pdftex.def Info: scatplot-eps-converted-to.pdf  used on input line 339.
+Package pdftex.def Info: scatplot-eps-converted-to.pdf  used on input line 348.
 
 (pdftex.def)             Requested size: 226.79846pt x 106.51006pt.
 Package epstopdf Info: Source file: <corrtrain.eps>
@@ -543,12 +548,12 @@ Package epstopdf Info: Source file: <corrtrain.eps>
 (epstopdf)                    size: 25674 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=corrtrain-eps-conver
 ted-to.pdf corrtrain.eps>
-(epstopdf)             \includegraphics on input line 346.
+(epstopdf)             \includegraphics on input line 355.
 Package epstopdf Info: Output file is already uptodate.
-<corrtrain-eps-converted-to.pdf, id=57, 1161.33875pt x 542.025pt>
+<corrtrain-eps-converted-to.pdf, id=50, 1161.33875pt x 542.025pt>
 File: corrtrain-eps-converted-to.pdf Graphic file (type pdf)
 <use corrtrain-eps-converted-to.pdf>
-Package pdftex.def Info: corrtrain-eps-converted-to.pdf  used on input line 346
+Package pdftex.def Info: corrtrain-eps-converted-to.pdf  used on input line 355
 .
 (pdftex.def)             Requested size: 252.0pt x 117.60828pt.
 Package epstopdf Info: Source file: <corrval.eps>
@@ -559,12 +564,12 @@ Package epstopdf Info: Source file: <corrval.eps>
 (epstopdf)                    size: 25254 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=corrval-eps-converte
 d-to.pdf corrval.eps>
-(epstopdf)             \includegraphics on input line 353.
+(epstopdf)             \includegraphics on input line 362.
 Package epstopdf Info: Output file is already uptodate.
-<corrval-eps-converted-to.pdf, id=58, 1161.33875pt x 542.025pt>
+<corrval-eps-converted-to.pdf, id=51, 1161.33875pt x 542.025pt>
 File: corrval-eps-converted-to.pdf Graphic file (type pdf)
 <use corrval-eps-converted-to.pdf>
-Package pdftex.def Info: corrval-eps-converted-to.pdf  used on input line 353.
+Package pdftex.def Info: corrval-eps-converted-to.pdf  used on input line 362.
 (pdftex.def)             Requested size: 252.0pt x 117.60828pt.
 Package epstopdf Info: Source file: <simout.eps>
 (epstopdf)                    date: 2025-11-08 11:36:21
@@ -574,12 +579,12 @@ Package epstopdf Info: Source file: <simout.eps>
 (epstopdf)                    size: 489669 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=simout-eps-converted
 -to.pdf simout.eps>
-(epstopdf)             \includegraphics on input line 360.
+(epstopdf)             \includegraphics on input line 369.
 Package epstopdf Info: Output file is already uptodate.
-<simout-eps-converted-to.pdf, id=59, 1180.41pt x 554.07pt>
+<simout-eps-converted-to.pdf, id=52, 1180.41pt x 554.07pt>
 File: simout-eps-converted-to.pdf Graphic file (type pdf)
 <use simout-eps-converted-to.pdf>
-Package pdftex.def Info: simout-eps-converted-to.pdf  used on input line 360.
+Package pdftex.def Info: simout-eps-converted-to.pdf  used on input line 369.
 (pdftex.def)             Requested size: 412.80157pt x 193.75832pt.
 Package epstopdf Info: Source file: <simoutval.eps>
 (epstopdf)                    date: 2025-11-05 19:00:24
@@ -589,37 +594,32 @@ Package epstopdf Info: Source file: <simoutval.eps>
 (epstopdf)                    size: 484302 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=simoutval-eps-conver
 ted-to.pdf simoutval.eps>
-(epstopdf)             \includegraphics on input line 367.
+(epstopdf)             \includegraphics on input line 376.
 Package epstopdf Info: Output file is already uptodate.
-<simoutval-eps-converted-to.pdf, id=60, 1189.44376pt x 554.07pt>
+<simoutval-eps-converted-to.pdf, id=53, 1189.44376pt x 554.07pt>
 File: simoutval-eps-converted-to.pdf Graphic file (type pdf)
 <use simoutval-eps-converted-to.pdf>
-Package pdftex.def Info: simoutval-eps-converted-to.pdf  used on input line 367
+Package pdftex.def Info: simoutval-eps-converted-to.pdf  used on input line 376
 .
 (pdftex.def)             Requested size: 412.80157pt x 192.28725pt.
 
 
+[6 <./valdataset-eps-converted-to.pdf> <./ocvsoc-eps-converted-to.pdf> <./2rchy
+b-eps-converted-to.pdf> <./scatplot-eps-converted-to.pdf> <./corrtrain-eps-conv
+erted-to.pdf>]
+
+LaTeX Warning: Reference `fig:scatterplot' on page 7 undefined on input line 40
+2.
 
 
-[6 <./ocvsoc-eps-converted-to.pdf> <./2rchyb-eps-converted-to.pdf> <./scatplot-
-eps-converted-to.pdf> <./corrtrain-eps-converted-to.pdf> <./corrval-eps-convert
-ed-to.pdf>]
-Underfull \vbox (badness 4673) has occurred while \output is active []
+
+
+LaTeX Warning: Reference `fig:correlation' on page 7 undefined on input line 40
+9.
 
 
 
-
-
-[7 <./simout-eps-converted-to.pdf> <./simoutval-eps-converted-to.pdf>]
-
-LaTeX Warning: Reference `fig:scatterplot' on page 8 undefined on input line 39
-3.
-
-
-LaTeX Warning: Reference `fig:correlation' on page 8 undefined on input line 40
-0.
-
-
+[7 <./corrval-eps-converted-to.pdf>]
 
 (battery_lpv.bbl
 
@@ -640,13 +640,11 @@ Alternatively, save the file in UTF-8 using your editor or another tool
 
 
 
-[8])
+[8 <./simout-eps-converted-to.pdf> <./simoutval-eps-converted-to.pdf>]
 
+)
 
-
-[9
-
-] (battery_lpv.aux)
+[9] (battery_lpv.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -655,18 +653,15 @@ L3 programming layer <2025-01-18>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 5073 strings out of 473523
- 89722 string characters out of 5714147
- 488052 words of memory out of 5000000
- 28233 multiletter control sequences out of 15000+600000
+ 5087 strings out of 473523
+ 89940 string characters out of 5714147
+ 492076 words of memory out of 5000000
+ 28247 multiletter control sequences out of 15000+600000
  601656 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,9n,65p,1489b,273s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,9n,65p,1489b,277s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmbx7.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1
@@ -693,9 +688,9 @@ tmb8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/
 utmbi8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/time
 s/utmr8a.pfb><C:/Users/Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on battery_lpv.pdf (9 pages, 3999053 bytes).
+Output written on battery_lpv.pdf (9 pages, 4025775 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
+ 269 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -167,7 +167,15 @@ The instantaneous parameter value $\theta_p(\mathbf{x})$ as a non-linear deviati
 	\theta_p(\mathbf{x}) = \theta_{p, nominal}^T(1_{p\times 1} + \delta_{NN}(\mathbf{x}))
 \end{equation}
 
-Where $\delta_{NN}(\mathbf{x})$ is a vector of scaling factors output by a shallow Neural Network (NN). This NN is specifically tasked with learning the non-linear dependency $\delta = f(SoC)$. This formulation is advantageous as it anchors the model to a physically-identified baseline ($\theta_{p, nominal}$) and uses the NN only to learn the variation. Another possible approach is to tune the NN along $\theta_{p, nominal}$, adjusting the nominal parameters together with its variation.
+Where $\delta_{NN}(\mathbf{x})$ is a vector of scaling factors output by a shallow Neural Network (NN). This NN is specifically tasked with learning the non-linear dependency $\delta = f(SoC)$. This formulation is advantageous as it anchors the model to a physically-identified baseline ($\theta_{p, nominal}$) and uses the NN only to learn the variation. The proposed model is described in Figure \ref{fig:hybarq}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{hybarq}
+	\caption{Hybrid model structure.}
+	\label{fig:hybarq}
+\end{figure}
+
 
 Three primary architectures for the mapping function $\delta_{NN}(\mathbf{x})$ shall be explored:
 
